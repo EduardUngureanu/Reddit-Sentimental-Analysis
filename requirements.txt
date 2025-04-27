@@ -1,0 +1,13 @@
+pandas
+numpy
+matplotlib
+seaborn
+nltk
+scikit-learn
+vaderSentiment
+transformers
+torch
+tweepy
+yfinance
+requests
+beautifulsoup4
