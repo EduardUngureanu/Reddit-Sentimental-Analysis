@@ -1,0 +1,84 @@
+[
+    {
+        "name": "Apple",
+        "subs": [
+            "apple",
+            "ios",
+            "iphone",
+            "mac"
+        ],
+        "keywords" : "Apple, MacBook, iMac, Mac, iPad, Apple Pencil, iPhone, Apple Watch, Vision Pro, Apple Vision, AirPods, AirPods Max, Apple TV, HomePod, AppleCare+, iCloud, iTunes, Siri, iOS, iPadOS, macOS, tvOS, visionOS, watchOS, Swift, SwiftUI, SwiftPlaygrounds, TestFlight, Xcode, SF Symbols, AAPL"
+    },
+    {
+        "name": "Microsoft",
+        "subs": [
+            "Microsoft",
+            "windows",
+            "xbox"
+        ],
+        "keywords" : "Microsoft, Clipchamp, Cortana, Defender, Internet Explorer, Microsoft 365, Microsoft Office, Microsoft Copilot, Microsoft Edge, Microsoft Store, Microsoft Teams, Viva, Azure, OneNote, Outlook, SharePoint, Skype, SwiftKey, Visio, Windows, Xbox, Yammer, Surface Pro, Surface Go, Surface Laptop, Visual Studio, Hololens, MSFT"
+    },
+    {
+        "name": "Google",
+        "subs": [
+            "google",
+            "Android"
+        ],
+        "keywords" : "Google, Android, Chrome, Chromebook, Chromecast, Gemini, Gmail, AdWords, Pixel, Pixelbook, Scholar, YouTube, GOOG"
+    },
+    {
+        "name": "Amazon",
+        "subs": [
+            "amazon",
+            "amazonprime",
+            "AmazonSeller",
+            "aws",
+            "FulfillmentByAmazon"
+        ],
+        "keywords" : "Amazon, Amazon Web Services, AWS, Prime, Music, Alexa, Echo, Amazon Drive, Kindle, FireTV, Whole Foods, Amazon Go, Ring, Jeff Bezos, AMZN"
+    },
+    {
+        "name": "Nvidia",
+        "subs": [
+            "nvidia",
+            "NvidiaStock",
+            "NVDA_Stock"
+        ],
+        "keywords" : "Nvidia, Data Center, DGX, EGX, HGX, Grace CPU, Grace Hopper, BlueField, SuperNICs, NVIDIA NGC, Virtual GPU, vGPU, CUDA-X, NVLink-C2C, NVLink, NVSwitch, Tensor Cores, Morpheus, Ada Lovelace, Accelerated Computing, Cloud Computing, Edge Computing, High Performance Computing, MLOps, AI, CUDA, GPU, GeForce, RTX, Ray Tracing, G-Sync, NVDA"
+    },
+    {
+        "name": "Tesla",
+        "subs": [
+            "Tesla",
+            "TeslaLounge",
+            "RealTesla",
+            "teslamotors",
+            "TSLA"
+        ],
+        "keywords" : "Tesla, Model S, Model 3, Model X, Model Y, Cybertruck, Solar Panels, Solar Roof, Powerwall, Megapack, Charging, Home Charging, Supercharging, Supercharger, Self-Driving, Elon Musk, Autopilot, EV, Electric Vehicle, Battery Energy, TSLA"
+    },
+    {
+        "name": "Meta",
+        "subs": [
+            "facebook",
+            "instagram"
+        ],
+        "keywords" : "Facebook, Instagram, WhatsApp, Oculus, Meta, Mark Zuckerberg, Meta Quest, Reality Labs, Horizon Workrooms, MetaVerse, META"
+    }
+]
+
+[
+    "technology",
+    "pcmasterrace",
+    "csMajors",
+    "pcgaming",
+    "privacy",
+    "wallstreetbets",
+    "hardware",
+    "gadgets",
+    "cars",
+    "stocks",
+    "StockMarket",
+    "finance",
+    "investing"
+]

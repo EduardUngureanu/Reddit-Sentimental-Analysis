@@ -11,3 +11,5 @@ tweepy
 yfinance
 requests
 beautifulsoup4
+kagglehub
+asyncpraw

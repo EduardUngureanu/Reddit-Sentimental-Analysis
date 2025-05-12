@@ -8,3 +8,9 @@
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+datasets
+reddit_data
+user.json
+.vscode
+__pycache__/
+share
