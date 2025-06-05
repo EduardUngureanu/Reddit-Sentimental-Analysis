@@ -49,7 +49,7 @@ def process_reddit_text(text: str) -> str:
 
     return processed_text
 
-def process_database(reddit_db_conn: sqlite3.Connection):
+def process_database(reddit_db_con: sqlite3.Connection):
     """
     Iterate over the `posts` and `comments` tables in the database and process the text, then inserts it under the new column `processed_text`.
 
@@ -60,8 +60,8 @@ def process_database(reddit_db_conn: sqlite3.Connection):
     Args:
         reddit_db_conn (sqlite3.Connection) : Database connection, not a cursor due to needing 2 cursors to read and write simultaneously.
     """
-    read_cursor = reddit_db_conn.cursor()
-    write_cursor = reddit_db_conn.cursor()
+    read_cursor = reddit_db_con.cursor()
+    write_cursor = reddit_db_con.cursor()
 
     print("############# Processing posts #############")
     database_helper.add_new_column(write_cursor, 'posts', 'processed_text', 'TEXT')

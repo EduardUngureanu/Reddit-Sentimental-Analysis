@@ -27,7 +27,9 @@ def get_reddit_db_connection(reddit_db_path: str):
     "body TEXT, " \
     "is_self BOOLEAN, " \
     "created_utc INTEGER, " \
-    "link TEXT)"
+    "link TEXT," \
+    "upvote_ratio REAL," \
+    "score INTEGER)"
 
     cur.execute(post_table_command)
 
@@ -39,7 +41,8 @@ def get_reddit_db_connection(reddit_db_path: str):
     "comment_id TEXT, " \
     "body TEXT, " \
     "created_utc INTEGER, " \
-    "link TEXT)"
+    "link TEXT, " \
+    "score INTEGER)"
 
     cur.execute(comment_table_command)
 
@@ -47,7 +50,7 @@ def get_reddit_db_connection(reddit_db_path: str):
 
     return reddit_db_con
 
-def insert_into_posts(reddit_db_cur: sqlite3.Cursor, company: str, subreddit: str, post_id: str, title: str, body: str, is_self: bool, created_utc: int, link: str):
+def insert_into_posts(reddit_db_cur: sqlite3.Cursor, company: str, subreddit: str, post_id: str, title: str, body: str, is_self: bool, created_utc: int, link: str, upvote_ratio: float, score: int):
     """
     Insert a new entry into the `posts` table
     Args:
@@ -58,9 +61,9 @@ def insert_into_posts(reddit_db_cur: sqlite3.Cursor, company: str, subreddit: st
     # command = f"INSERT INTO posts VALUES({company},{subreddit},{post_id},{title},{body},{created_utc},{link})"
     # reddit_db_cur.execute(command)
 
-    reddit_db_cur.execute("INSERT INTO posts VALUES(?, ?, ?, ?, ?, ?, ?, ?)", (company, subreddit, post_id, title, body, is_self, created_utc, link,))
+    reddit_db_cur.execute("INSERT INTO posts VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (company, subreddit, post_id, title, body, is_self, created_utc, link, upvote_ratio, score))
 
-def insert_into_comments(reddit_db_cur: sqlite3.Cursor, company: str, subreddit: str, post_id: str, parent_id: str, comment_id: str, body: str, created_utc: int, link: str):
+def insert_into_comments(reddit_db_cur: sqlite3.Cursor, company: str, subreddit: str, post_id: str, parent_id: str, comment_id: str, body: str, created_utc: int, link: str, score: int):
     """
     Insert a new entry into the `comments` table
     Args:
@@ -68,10 +71,10 @@ def insert_into_comments(reddit_db_cur: sqlite3.Cursor, company: str, subreddit:
         Other : Comment data, mostly self explanatory.
     """
 
-    # command = f"INSERT INTO comments VALUES({company},{subreddit},{post_id},{parrent_id},{comment_id},{body},{created_utc},{link})"
+    # command = f"INSERT INTO comments VALUES({company},{subreddit},{post_id},{parent_id},{comment_id},{body},{created_utc},{link})"
     # reddit_db_cur.execute(command)
 
-    reddit_db_cur.execute("INSERT INTO comments VALUES(?, ?, ?, ?, ?, ?, ?, ?)", (company, subreddit, post_id, parent_id, comment_id, body, created_utc, link,))
+    reddit_db_cur.execute("INSERT INTO comments VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", (company, subreddit, post_id, parent_id, comment_id, body, created_utc, link, score))
 
 def  add_new_column(cur: sqlite3.Cursor, table: str, name: str, type: str):
     """

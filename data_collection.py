@@ -6,10 +6,11 @@ import database_helper
 from datetime import datetime
 import os
 import sqlite3
+import data_processing
 
 def create_reddit_db_folder() -> str:
     """
-    Will create a new folder with the path `./reddit_data/<creation datetime>` datetime being formated as `%Y-%m-%d_%H-%M-%S`
+    Will create a new folder with the path `./reddit_data/<creation datetime>` datetime being formatted as `%Y-%m-%d_%H-%M-%S`
 
     Returns:
         str : Path to the folder.
@@ -25,7 +26,7 @@ def create_reddit_db_folder() -> str:
 
 def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
     """
-    Collect data from dedicated comunity subreddits, as in the subreddits listed in the `companies.json` file.
+    Collect data from dedicated community subreddits, as in the subreddits listed in the `companies.json` file.
 
     Args:
         reddit_con (praw.Reddit) : Reddit connection instance.
@@ -44,7 +45,7 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
             company_post_count = 0
             company_comment_count = 0
             for sub in sub_list:
-                # Getting the subreddit diplay_name instead of using the file data as the data might not be formated correctly
+                # Getting the subreddit display_name instead of using the file data as the data might not be formatted correctly
                 sub_display_name = sub.display_name
                 print(f" - Probing {sub_display_name} for posts")
                 posts = reddit_helper.probe_sub_for_top_posts(sub, 20)
@@ -52,7 +53,7 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                 sub_comment_count = 0
                 for post in posts:
                     post_comment_count = 0
-                    comments = reddit_helper.probe_posts_for_comments(post, 100, 'best', 2)
+                    comments = reddit_helper.probe_posts_for_comments(post, 50, 'best', 2)
 
                     # Getting early, needed for comments
                     post_id = post.id
@@ -73,11 +74,13 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                                                       post_body,
                                                       is_self,
                                                       post.created_utc,
-                                                      reddit_helper.create_post_link(post_permalink))
+                                                      reddit_helper.create_post_link(post_permalink),
+                                                      post.upvote_ratio,
+                                                      post.score)
                     
                     for comment in comments:
                         comment_id = comment.id
-                        # `post_id` is the submission ID but `parrent_id` is ID of the parent comment (prefixed with `t1_`) or, if it is a top-level comment, it will be the submission ID again instead (prefixed with `t3_`)
+                        # `post_id` is the submission ID but `parent_id` is ID of the parent comment (prefixed with `t1_`) or, if it is a top-level comment, it will be the submission ID again instead (prefixed with `t3_`)
                         database_helper.insert_into_comments(reddit_db_cur,
                                                              company_name,
                                                              sub_display_name,
@@ -86,7 +89,8 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                                                              comment_id,
                                                              comment.body,
                                                              comment.created_utc,
-                                                             reddit_helper.create_comment_link(post_permalink, comment_id))
+                                                             reddit_helper.create_comment_link(post_permalink, comment_id),
+                                                             comment.score)
                         post_comment_count += 1
                     
                     print(f" - - Added {post_comment_count} comments from post {post_id}")
@@ -117,7 +121,7 @@ def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
 
         company_name = None
         for sub in sub_list:
-            # Getting the subreddit diplay_name instead of using the file data as the data might not be formated correctly
+            # Getting the subreddit display_name instead of using the file data as the data might not be formatted correctly
             sub_display_name = sub.display_name
             print(f" - Probing {sub_display_name} for posts")
             posts = reddit_helper.probe_sub_for_top_posts(sub, 20)
@@ -146,11 +150,13 @@ def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                                                     post_body,
                                                     is_self,
                                                     post.created_utc,
-                                                    reddit_helper.create_post_link(post_permalink))
+                                                    reddit_helper.create_post_link(post_permalink),
+                                                    post.upvote_ratio,
+                                                    post.score)
                 
                 for comment in comments:
                     comment_id = comment.id
-                    # `post_id` is the submission ID but `parrent_id` is ID of the parent comment (prefixed with `t1_`) or, if it is a top-level comment, it will be the submission ID again instead (prefixed with `t3_`)
+                    # `post_id` is the submission ID but `parent_id` is ID of the parent comment (prefixed with `t1_`) or, if it is a top-level comment, it will be the submission ID again instead (prefixed with `t3_`)
                     database_helper.insert_into_comments(reddit_db_cur,
                                                             company_name,
                                                             sub_display_name,
@@ -159,7 +165,8 @@ def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                                                             comment_id,
                                                             comment.body,
                                                             comment.created_utc,
-                                                            reddit_helper.create_comment_link(post_permalink, comment_id))
+                                                            reddit_helper.create_comment_link(post_permalink, comment_id),
+                                                            comment.score)
                     post_comment_count += 1
                 
                 print(f" - - Added {post_comment_count} comments from post {post_id}")
@@ -178,6 +185,9 @@ def collect():
 
     collect_dedicated(reddit_con, reddit_db_cur)
     collect_generic(reddit_con, reddit_db_cur)
+
+    data_processing.process_database(reddit_db_con)
+
     reddit_db_cur.close()
     reddit_db_con.close()
 
