@@ -14,3 +14,4 @@ user.json
 .vscode
 __pycache__/
 share
+tests.py

@@ -1,0 +1,176 @@
+Stemmed | CountVectorizer | MultinomialNB
+              precision    recall  f1-score   support
+
+          -1     0.5821    0.6086    0.5950      1893
+           0     0.6131    0.6513    0.6316      2168
+           1     0.7172    0.5997    0.6532      1349
+
+    accuracy                         0.6235      5410
+   macro avg     0.6375    0.6199    0.6266      5410
+weighted avg     0.6282    0.6235    0.6242      5410
+
+Stemmed | CountVectorizer | LinearSVC
+              precision    recall  f1-score   support
+
+          -1     0.5951    0.5737    0.5842      1893
+           0     0.6117    0.6744    0.6415      2168
+           1     0.7197    0.6375    0.6761      1349
+
+    accuracy                         0.6299      5410
+   macro avg     0.6421    0.6285    0.6339      5410
+weighted avg     0.6328    0.6299    0.6301      5410
+
+Stemmed | CountVectorizer | SGDClassifier
+              precision    recall  f1-score   support
+
+          -1     0.6667    0.5515    0.6036      1893
+           0     0.6216    0.7947    0.6976      2168
+           1     0.8125    0.6457    0.7195      1349
+
+    accuracy                         0.6725      5410
+   macro avg     0.7002    0.6640    0.6736      5410
+weighted avg     0.6850    0.6725    0.6702      5410
+
+Stemmed | CountVectorizer | LogisticRegression
+              precision    recall  f1-score   support
+
+          -1     0.6335    0.5853    0.6085      1893
+           0     0.6284    0.7417    0.6803      2168
+           1     0.7995    0.6531    0.7189      1349
+
+    accuracy                         0.6649      5410
+   macro avg     0.6871    0.6600    0.6692      5410
+weighted avg     0.6728    0.6649    0.6648      5410
+
+Stemmed | TfidfVectorizer | MultinomialNB
+              precision    recall  f1-score   support
+
+          -1     0.5613    0.5874    0.5741      1893
+           0     0.5648    0.7177    0.6321      2168
+           1     0.8145    0.4070    0.5428      1349
+
+    accuracy                         0.5946      5410
+   macro avg     0.6469    0.5707    0.5830      5410
+weighted avg     0.6259    0.5946    0.5895      5410
+
+Stemmed | TfidfVectorizer | LinearSVC
+              precision    recall  f1-score   support
+
+          -1     0.6041    0.5811    0.5924      1893
+           0     0.6161    0.6937    0.6526      2168
+           1     0.7500    0.6383    0.6896      1349
+
+    accuracy                         0.6405      5410
+   macro avg     0.6567    0.6377    0.6449      5410
+weighted avg     0.6453    0.6405    0.6408      5410
+
+Stemmed | TfidfVectorizer | SGDClassifier
+              precision    recall  f1-score   support
+
+          -1     0.6879    0.5182    0.5911      1893
+           0     0.6076    0.8312    0.7020      2168
+           1     0.8301    0.6264    0.7140      1349
+
+    accuracy                         0.6706      5410
+   macro avg     0.7085    0.6586    0.6690      5410
+weighted avg     0.6912    0.6706    0.6662      5410
+
+Stemmed | TfidfVectorizer | LogisticRegression
+              precision    recall  f1-score   support
+
+          -1     0.6448    0.5753    0.6080      1893
+           0     0.6278    0.7634    0.6890      2168
+           1     0.8028    0.6457    0.7157      1349
+
+    accuracy                         0.6682      5410
+   macro avg     0.6918    0.6614    0.6709      5410
+weighted avg     0.6774    0.6682    0.6673      5410
+
+Lemmatized | CountVectorizer | MultinomialNB
+              precision    recall  f1-score   support
+
+          -1     0.5738    0.6096    0.5912      1893
+           0     0.6168    0.6407    0.6285      2168
+           1     0.7105    0.6042    0.6530      1349
+
+    accuracy                         0.6207      5410
+   macro avg     0.6337    0.6181    0.6242      5410
+weighted avg     0.6251    0.6207    0.6216      5410
+
+Lemmatized | CountVectorizer | LinearSVC
+              precision    recall  f1-score   support
+
+          -1     0.5875    0.5890    0.5882      1893
+           0     0.6138    0.6531    0.6328      2168
+           1     0.7178    0.6412    0.6774      1349
+
+    accuracy                         0.6277      5410
+   macro avg     0.6397    0.6278    0.6328      5410
+weighted avg     0.6305    0.6277    0.6283      5410
+
+Lemmatized | CountVectorizer | SGDClassifier
+              precision    recall  f1-score   support
+
+          -1     0.6601    0.5684    0.6108      1893
+           0     0.6269    0.7791    0.6948      2168
+           1     0.8048    0.6479    0.7179      1349
+
+    accuracy                         0.6726      5410
+   macro avg     0.6973    0.6651    0.6745      5410
+weighted avg     0.6829    0.6726    0.6712      5410
+
+Lemmatized | CountVectorizer | LogisticRegression
+              precision    recall  f1-score   support
+
+          -1     0.6314    0.5927    0.6114      1893
+           0     0.6306    0.7315    0.6773      2168
+           1     0.7862    0.6516    0.7126      1349
+
+    accuracy                         0.6630      5410
+   macro avg     0.6827    0.6586    0.6671      5410
+weighted avg     0.6697    0.6630    0.6631      5410
+
+Lemmatized | TfidfVectorizer | MultinomialNB
+              precision    recall  f1-score   support
+
+          -1     0.5582    0.5927    0.5749      1893
+           0     0.5672    0.7122    0.6315      2168
+           1     0.8260    0.4151    0.5525      1349
+
+    accuracy                         0.5963      5410
+   macro avg     0.6505    0.5733    0.5863      5410
+weighted avg     0.6286    0.5963    0.5920      5410
+
+Lemmatized | TfidfVectorizer | LinearSVC
+              precision    recall  f1-score   support
+
+          -1     0.5955    0.5948    0.5951      1893
+           0     0.6191    0.6725    0.6447      2168
+           1     0.7423    0.6405    0.6876      1349
+
+    accuracy                         0.6373      5410
+   macro avg     0.6523    0.6359    0.6425      5410
+weighted avg     0.6415    0.6373    0.6381      5410
+
+Lemmatized | TfidfVectorizer | SGDClassifier
+              precision    recall  f1-score   support
+
+          -1     0.6960    0.5225    0.5969      1893
+           0     0.6017    0.8312    0.6980      2168
+           1     0.8370    0.6168    0.7102      1349
+
+    accuracy                         0.6697      5410
+   macro avg     0.7116    0.6568    0.6684      5410
+weighted avg     0.6934    0.6697    0.6657      5410
+
+Lemmatized | TfidfVectorizer | LogisticRegression
+              precision    recall  f1-score   support
+
+          -1     0.6500    0.5837    0.6151      1893
+           0     0.6264    0.7657    0.6891      2168
+           1     0.8104    0.6368    0.7132      1349
+
+    accuracy                         0.6699      5410
+   macro avg     0.6956    0.6621    0.6724      5410
+weighted avg     0.6805    0.6699    0.6692      5410
+

@@ -7,6 +7,7 @@ from datetime import datetime
 import os
 import sqlite3
 import data_processing
+import utils
 
 def create_reddit_db_folder() -> str:
     """
@@ -33,12 +34,15 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
         reddit_db_cur (sqlite3.Cursor) : SQLite cursor to the a reddit database.
 
     """
+
+    log = ""
+
     with open("companies.json", "r") as fd:
         companies = json.load(fd)
-        print(f"\n\n############# Probing DEDICATED subreddits #############")
+        log = utils.build_log(f"\n\n############# Probing DEDICATED subreddits #############", log)
         for company in companies:
             company_name = company["name"]
-            print(f"Probing subreddits for {company_name}")
+            log = utils.build_log(f"Probing subreddits for {company_name}", log)
             sub_name_list = company["subs"]
             # Form the subreddit list for each company
             sub_list = [reddit_con.subreddit(sub_name) for sub_name in sub_name_list]
@@ -47,7 +51,7 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
             for sub in sub_list:
                 # Getting the subreddit display_name instead of using the file data as the data might not be formatted correctly
                 sub_display_name = sub.display_name
-                print(f" - Probing {sub_display_name} for posts")
+                log = utils.build_log(f" - Probing {sub_display_name} for posts", log)
                 posts = reddit_helper.probe_sub_for_top_posts(sub, 20)
                 sub_post_count = 0
                 sub_comment_count = 0
@@ -93,15 +97,16 @@ def collect_dedicated(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                                                              comment.score)
                         post_comment_count += 1
                     
-                    print(f" - - Added {post_comment_count} comments from post {post_id}")
+                    log = utils.build_log(f" - - Added {post_comment_count} comments from post {post_id}", log)
                     sub_post_count += 1
                     sub_comment_count += post_comment_count
                 
-                print(f" - {sub_display_name} TOTALS : {sub_post_count} posts | {sub_comment_count} comments")
+                log = utils.build_log(f" - {sub_display_name} TOTALS : {sub_post_count} posts | {sub_comment_count} comments", log)
                 company_post_count += sub_post_count
                 company_comment_count += sub_comment_count
 
-            print(f"{company_name} company TOTALS : {company_post_count} posts | {company_comment_count} comments")
+            log = utils.build_log(f"{company_name} company TOTALS : {company_post_count} posts | {company_comment_count} comments", log)
+    return log
                         
 # Mostly a repeat of collect_dedicated with the company stuff removed, company just set to None, will be assigned later
 def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
@@ -113,8 +118,11 @@ def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
         reddit_db_cur (sqlite3.Cursor) : SQLite cursor to the a reddit database.
 
     """
+
+    log = ""
+
     with open("generic.json", "r") as fd:
-        print(f"\n\n############# Probing GENERIC subreddits #############")
+        log = utils.build_log(f"\n\n############# Probing GENERIC subreddits #############", log)
         sub_name_list = json.load(fd)
 
         sub_list = [reddit_con.subreddit(sub_name) for sub_name in sub_name_list]
@@ -123,7 +131,7 @@ def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
         for sub in sub_list:
             # Getting the subreddit display_name instead of using the file data as the data might not be formatted correctly
             sub_display_name = sub.display_name
-            print(f" - Probing {sub_display_name} for posts")
+            log = utils.build_log(f" - Probing {sub_display_name} for posts", log)
             posts = reddit_helper.probe_sub_for_top_posts(sub, 20)
             sub_post_count = 0
             sub_comment_count = 0
@@ -169,11 +177,12 @@ def collect_generic(reddit_con: praw.Reddit, reddit_db_cur: sqlite3.Cursor):
                                                             comment.score)
                     post_comment_count += 1
                 
-                print(f" - - Added {post_comment_count} comments from post {post_id}")
+                log = utils.build_log(f" - - Added {post_comment_count} comments from post {post_id}", log)
                 sub_post_count += 1
                 sub_comment_count += post_comment_count
             
-            print(f" - {sub_display_name} TOTALS : {sub_post_count} posts | {sub_comment_count} comments")
+            log = utils.build_log(f" - {sub_display_name} TOTALS : {sub_post_count} posts | {sub_comment_count} comments", log)
+    return log
 
 def collect():
     reddit_con = reddit_helper.get_access_to_reddit("user.json")
@@ -183,12 +192,18 @@ def collect():
     reddit_db_con = database_helper.get_reddit_db_connection(f"{path}/data.db")
     reddit_db_cur = reddit_db_con.cursor()
 
-    collect_dedicated(reddit_con, reddit_db_cur)
-    collect_generic(reddit_con, reddit_db_cur)
+    full_log = collect_dedicated(reddit_con, reddit_db_cur)
+    full_log = full_log + collect_generic(reddit_con, reddit_db_cur)
 
     data_processing.process_database(reddit_db_con)
+
+    reddit_db_con.commit()
 
     reddit_db_cur.close()
     reddit_db_con.close()
 
-collect()
+    with open(f"{path}/output.txt", "w") as out:
+        out.write(full_log)
+
+if __name__ == "__main__":
+    collect()

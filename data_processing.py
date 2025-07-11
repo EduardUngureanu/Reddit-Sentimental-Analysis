@@ -43,9 +43,9 @@ def process_reddit_text(text: str) -> str:
     # tokenize
     tokens = word_tokenize(text)
     # remove stopwords
-    filtered_tokens = [word for word in tokens if word not in stop_words]
+    tokens = [word for word in tokens if word not in stop_words]
     # rejoin tokens
-    processed_text = ' '.join(filtered_tokens)
+    processed_text = ' '.join(tokens)
 
     return processed_text
 
