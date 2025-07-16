@@ -89,4 +89,4 @@ def  add_new_column(cur: sqlite3.Cursor, table: str, name: str, type: str):
     try:
         cur.execute(f"ALTER TABLE {table} ADD COLUMN {name} {type}")
     except sqlite3.OperationalError:
-        print(f"Column '{name}' might already exist. Skipping ALTER TABLE.")
+        print(f"Column '{name}' might already exist. Table wasn't altered.")

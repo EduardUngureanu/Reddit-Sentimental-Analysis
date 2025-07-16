@@ -1,0 +1,212 @@
+{
+    "apple": {
+        "total_score": 31329,
+        "Vader_weighted": 0.014027268664815346,
+        "Sentiment140_weighted": -0.3120750742123915,
+        "GoEmotions_weighted": -0.1615436177343676
+    },
+    "ios": {
+        "total_score": 1736,
+        "Vader_weighted": 0.00013905529953917687,
+        "Sentiment140_weighted": -0.0552995391705071,
+        "GoEmotions_weighted": -0.21428571428571427
+    },
+    "iphone": {
+        "total_score": 6717,
+        "Vader_weighted": -0.01233160637189223,
+        "Sentiment140_weighted": -0.2206342117016528,
+        "GoEmotions_weighted": 0.13592377549501278
+    },
+    "mac": {
+        "total_score": 4404,
+        "Vader_weighted": 0.2672547910990008,
+        "Sentiment140_weighted": 0.06448683015440511,
+        "GoEmotions_weighted": -0.19277929155313359
+    },
+    "Microsoft": {
+        "total_score": 491,
+        "Vader_weighted": 0.022554786150712835,
+        "Sentiment140_weighted": 0.5173116089613036,
+        "GoEmotions_weighted": 0.0
+    },
+    "windows": {
+        "total_score": 1695,
+        "Vader_weighted": 0.06206058997050147,
+        "Sentiment140_weighted": -0.49911504424778796,
+        "GoEmotions_weighted": -0.03952802359882006
+    },
+    "xbox": {
+        "total_score": 22812,
+        "Vader_weighted": 0.23436626337015587,
+        "Sentiment140_weighted": 0.2243994388918125,
+        "GoEmotions_weighted": -0.03620901280028054
+    },
+    "google": {
+        "total_score": 2494,
+        "Vader_weighted": 0.011443865276663991,
+        "Sentiment140_weighted": 0.4029671210906174,
+        "GoEmotions_weighted": -0.09422614274258219
+    },
+    "Android": {
+        "total_score": 3722,
+        "Vader_weighted": 0.19154865663621695,
+        "Sentiment140_weighted": 0.36136485760343917,
+        "GoEmotions_weighted": -0.26061257388500797
+    },
+    "amazon": {
+        "total_score": 8,
+        "Vader_weighted": 0.37921249999999995,
+        "Sentiment140_weighted": 1.0,
+        "GoEmotions_weighted": 0.0
+    },
+    "amazonprime": {
+        "total_score": 627,
+        "Vader_weighted": -0.000992025518341296,
+        "Sentiment140_weighted": 0.26315789473684226,
+        "GoEmotions_weighted": -0.29824561403508765
+    },
+    "AmazonSeller": {
+        "total_score": 80,
+        "Vader_weighted": -0.24935499999999997,
+        "Sentiment140_weighted": -0.7499999999999998,
+        "GoEmotions_weighted": -0.925
+    },
+    "aws": {
+        "total_score": 1736,
+        "Vader_weighted": 0.1971650921658986,
+        "Sentiment140_weighted": -0.14055299539170488,
+        "GoEmotions_weighted": -0.14228110599078336
+    },
+    "FulfillmentByAmazon": {
+        "total_score": 79,
+        "Vader_weighted": 0.2884177215189874,
+        "Sentiment140_weighted": 0.31645569620253183,
+        "GoEmotions_weighted": 0.11392405063291136
+    },
+    "nvidia": {
+        "total_score": 4679,
+        "Vader_weighted": 0.12489970079076727,
+        "Sentiment140_weighted": 0.8102158580893359,
+        "GoEmotions_weighted": -0.1171190425304551
+    },
+    "NvidiaStock": {
+        "total_score": 1268,
+        "Vader_weighted": 0.12204037854889578,
+        "Sentiment140_weighted": 0.14037854889589896,
+        "GoEmotions_weighted": -0.2854889589905363
+    },
+    "NVDA_Stock": {
+        "total_score": 219,
+        "Vader_weighted": 0.21021369863013703,
+        "Sentiment140_weighted": 0.4155251141552511,
+        "GoEmotions_weighted": -0.0593607305936073
+    },
+    "TeslaLounge": {
+        "total_score": 2097,
+        "Vader_weighted": 0.07256199332379595,
+        "Sentiment140_weighted": -0.06103958035288505,
+        "GoEmotions_weighted": -0.18311874105865492
+    },
+    "RealTesla": {
+        "total_score": 6823,
+        "Vader_weighted": -0.17683828228052176,
+        "Sentiment140_weighted": -0.41873076359372735,
+        "GoEmotions_weighted": -0.39791880404514146
+    },
+    "teslamotors": {
+        "total_score": 1258,
+        "Vader_weighted": 0.16360667726550077,
+        "Sentiment140_weighted": 0.06677265500794914,
+        "GoEmotions_weighted": -0.5198728139904613
+    },
+    "TSLA": {
+        "total_score": 14,
+        "Vader_weighted": 0.0,
+        "Sentiment140_weighted": 1.0,
+        "GoEmotions_weighted": 0.0
+    },
+    "facebook": {
+        "total_score": 1222,
+        "Vader_weighted": -0.02311309328968903,
+        "Sentiment140_weighted": -0.3641571194762685,
+        "GoEmotions_weighted": -0.3977086743044192
+    },
+    "instagram": {
+        "total_score": 492,
+        "Vader_weighted": -0.03771869918699188,
+        "Sentiment140_weighted": -0.2845528455284554,
+        "GoEmotions_weighted": -0.19308943089430894
+    },
+    "technology": {
+        "total_score": 183072,
+        "Vader_weighted": -0.1250534942536266,
+        "Sentiment140_weighted": -0.13336282992483833,
+        "GoEmotions_weighted": -0.27926171123929405
+    },
+    "pcmasterrace": {
+        "total_score": 160513,
+        "Vader_weighted": 0.1705666961554513,
+        "Sentiment140_weighted": 0.565131796178502,
+        "GoEmotions_weighted": -0.14829951468105426
+    },
+    "csMajors": {
+        "total_score": 8246,
+        "Vader_weighted": 0.12884940577249573,
+        "Sentiment140_weighted": -0.12878971622604907,
+        "GoEmotions_weighted": -0.22968712102837746
+    },
+    "pcgaming": {
+        "total_score": 12768,
+        "Vader_weighted": 0.23381032268170415,
+        "Sentiment140_weighted": 0.14505012531328293,
+        "GoEmotions_weighted": -0.4670269423558891
+    },
+    "privacy": {
+        "total_score": 3949,
+        "Vader_weighted": 0.24576991643454027,
+        "Sentiment140_weighted": 0.40364649278298304,
+        "GoEmotions_weighted": -0.06887819701190175
+    },
+    "wallstreetbets": {
+        "total_score": 40583,
+        "Vader_weighted": 0.04301430155483817,
+        "Sentiment140_weighted": 0.057092871399354476,
+        "GoEmotions_weighted": -0.11480176428553818
+    },
+    "hardware": {
+        "total_score": 4040,
+        "Vader_weighted": 0.19639898514851473,
+        "Sentiment140_weighted": 0.07673267326732666,
+        "GoEmotions_weighted": -0.20297029702970296
+    },
+    "gadgets": {
+        "total_score": 15642,
+        "Vader_weighted": -0.09952071985679597,
+        "Sentiment140_weighted": -0.5366960746707569,
+        "GoEmotions_weighted": -0.5889272471550938
+    },
+    "cars": {
+        "total_score": 7972,
+        "Vader_weighted": 0.0871447566482689,
+        "Sentiment140_weighted": -0.14061716006021086,
+        "GoEmotions_weighted": -0.19179628700451581
+    },
+    "stocks": {
+        "total_score": 14763,
+        "Vader_weighted": 0.10084512632933693,
+        "Sentiment140_weighted": -0.10512768407505256,
+        "GoEmotions_weighted": -0.08934498408182615
+    },
+    "StockMarket": {
+        "total_score": 32013,
+        "Vader_weighted": -0.004762337175522463,
+        "Sentiment140_weighted": -0.0301440039983757,
+        "GoEmotions_weighted": -0.11892043857183028
+    },
+    "investing": {
+        "total_score": 5042,
+        "Vader_weighted": -0.13485247917493065,
+        "Sentiment140_weighted": 0.07953193177310589,
+        "GoEmotions_weighted": -0.16065053550178504
+    }
+}

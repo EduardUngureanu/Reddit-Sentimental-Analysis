@@ -18,11 +18,11 @@ from sklearn.linear_model import LogisticRegression
 working_directory = "testing\\GoEmotions"
 
 label_map = {
-    0: -1,  # Very Negative
+    0: -2,  # Very Negative
     1: -1,  # Negative
     2:  0,  # Neutral
     3:  1,  # Positive
-    4:  1   # Very Positive
+    4:  2   # Very Positive
 }
 
 def test_pipeline(x_train, x_test, y_train, y_test, vectorizer, model):

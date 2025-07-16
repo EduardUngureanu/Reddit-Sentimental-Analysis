@@ -11,11 +11,32 @@ import GoEmotions
 import os
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
+import yfinance as yf
+import joblib
+import database_helper
+from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import os
+import re
+import joblib
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+import GoEmotions
+import sentiment140
+import os
+import joblib
+import pandas as pd
+from sklearn.pipeline import Pipeline
+import sqlite3
 
-list = ["2025-05-11_16-48-23","2025-05-12_16-46-26", "2025-05-13_16-10-38", "2025-05-14_21-24-24", "2025-05-15_20-56-03", "2025-05-16_18-27-38 dupe", "2025-05-17_20-31-05"]
+from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import LogisticRegression
 
+# Load model from file
+loaded_model = joblib.load('GoEmotions_model.pkl')
 
-df = pd.read_csv(os.path.join(GoEmotions.download_to, GoEmotions.train_lemmatized), encoding='utf-8')
-vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(df["text"])
-print("Vectorized shape:", X.shape)
+# Use the model
+print(loaded_model.predict(["this is amazing"]))
